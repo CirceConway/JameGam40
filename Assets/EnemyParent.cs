@@ -6,14 +6,19 @@ public class EnemyParent : MonoBehaviour
 {
 
     //Stats
-    public int health;
-    public int damage;
-    public float moveSpeed;
-    public float attackSpeed;
+    protected float health;
+    protected float damage;
+    protected float moveSpeed;
+    protected float attackSpeed;
+    protected float projSpeed;
 
-    public GameObject player;
+    //protected Rigidbody2D rb;
 
-    public Rigidbody2D rb;
+    protected GameObject player;
+
+    protected Controller controller;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +30,18 @@ public class EnemyParent : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public virtual void setBasics(Controller controller, GameObject player, float health, float damage, float moveSpeed, float attackSpeed)
+    {
+        this.controller = controller;
+        this.player = player;
+
+        this.health = health;
+        this.damage = damage;
+        this.moveSpeed = moveSpeed;
+        this.attackSpeed = attackSpeed;
+
     }
 
     //Always destroys enemy, each enemy type will have added behavior
